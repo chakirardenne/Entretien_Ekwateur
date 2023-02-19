@@ -5,8 +5,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class OfferTest {
@@ -23,7 +21,7 @@ class OfferTest {
 
     @Test
     void addPromoCodeToOffer() {
-        Code codeToAdd = new Code("EKWA_TEST", 1.75, LocalDate.parse("2019-10-04"));
+        Code codeToAdd = new Code("EKWA_TEST", 1.75,"2019-10-04");
         offer.addPromoCodeToOffer(codeToAdd);
         assertTrue(offer.getValidPromoCodeList().contains(codeToAdd));
     }
