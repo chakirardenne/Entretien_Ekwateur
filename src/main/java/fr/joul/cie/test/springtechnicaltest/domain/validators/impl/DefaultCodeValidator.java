@@ -19,7 +19,7 @@ public class DefaultCodeValidator implements CodeValidator {
     }
 
     private boolean checkCodeEndDate(Code code) {
-        return LocalDate.parse(code.endDate().toString(), DateTimeFormatter.ofPattern("dd/MM/uu")).isAfter(LocalDate.now(
+        return LocalDate.parse(code.endDate().toString(), DateTimeFormatter.ofPattern("yyyy-MM-dd")).isAfter(LocalDate.now(
                 ZoneId.of("Europe/Paris"))
         );
     }
