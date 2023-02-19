@@ -7,6 +7,7 @@ public class Offer {
     private final String offerType;
     private final String offerName;
     private final String offerDescription;
+
     private final Set<Code> validPromoCodeList;
 
     public Offer(String offerType, String offerName, String offerDescription) {
@@ -14,6 +15,10 @@ public class Offer {
         this.offerName = offerName;
         this.offerDescription = offerDescription;
         this.validPromoCodeList = new HashSet<>();
+    }
+
+    public Set<Code> getValidPromoCodeList() {
+        return validPromoCodeList;
     }
 
     public void addPromoCodeToOffer(Code promoCode) {
