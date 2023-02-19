@@ -2,6 +2,7 @@ package fr.joul.cie.test.springtechnicaltest.domain.validators.impl;
 
 import fr.joul.cie.test.springtechnicaltest.domain.Code;
 import fr.joul.cie.test.springtechnicaltest.domain.Offer;
+import fr.joul.cie.test.springtechnicaltest.domain.OfferType;
 import fr.joul.cie.test.springtechnicaltest.domain.validators.intf.CodeValidator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
@@ -24,7 +25,7 @@ class DefaultCodeValidatorTest {
     @BeforeAll
     static void setUp() {
         codeValidator = new DefaultCodeValidator();
-        offer = new Offer("GAS", "EKWATEST", "UNE OFFRE TEST");
+        offer = new Offer(OfferType.GAS, "EKWATEST", "UNE OFFRE TEST");
     }
 
     @AfterAll
@@ -35,14 +36,14 @@ class DefaultCodeValidatorTest {
     @ParameterizedTest
     @MethodSource("providerForShouldReturnTrueForValidCode")
     void shouldReturnTrueForValidCode(Code code, boolean expected) {
-        offer.addPromoCodeToOffer(code);
+        offer.addPromoCodeToOffer(code.code());
         assertEquals(codeValidator.validate(offer.getValidPromoCodeList(), code), expected);
     }
 
     @Test
     void shouldReturnFalseForPassedEndDateCode() {
         Code code = new Code("EKWA_WELCOME", 2.0,"2019-10-04");
-        offer.addPromoCodeToOffer(code);
+        offer.addPromoCodeToOffer(code.code());
         assertFalse(codeValidator.validate(offer.getValidPromoCodeList(), code));
     }
 
@@ -55,7 +56,7 @@ class DefaultCodeValidatorTest {
     @ParameterizedTest
     @MethodSource("providerForShouldThrowDateTimeParseException")
     void shouldThrowDateTimeParseException(Code code) {
-        Set<Code> validPromoCodeList = offer.getValidPromoCodeList();
+        Set<String> validPromoCodeList = offer.getValidPromoCodeList();
         Assertions.assertThrows(DateTimeParseException.class , () -> {
             codeValidator.validate(validPromoCodeList, code);
         });
@@ -63,7 +64,7 @@ class DefaultCodeValidatorTest {
 
     @Test
     void shouldThrowNullPointerException() {
-        Set<Code> validPromoCodeList = offer.getValidPromoCodeList();
+        Set<String> validPromoCodeList = offer.getValidPromoCodeList();
         Assertions.assertThrows(NullPointerException.class , () -> {
             codeValidator.validate(validPromoCodeList, null);
         });

@@ -4,24 +4,24 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Offer {
-    private final String offerType;
+    private final OfferType offerType;
     private final String offerName;
     private final String offerDescription;
 
-    private final Set<Code> validPromoCodeList;
+    private final Set<String> validPromoCodeList;
 
-    public Offer(String offerType, String offerName, String offerDescription) {
+    public Offer(OfferType offerType, String offerName, String offerDescription) {
         this.offerType = offerType;
         this.offerName = offerName;
         this.offerDescription = offerDescription;
         this.validPromoCodeList = new HashSet<>();
     }
 
-    public Set<Code> getValidPromoCodeList() {
+    public Set<String> getValidPromoCodeList() {
         return validPromoCodeList;
     }
 
-    public void addPromoCodeToOffer(Code promoCode) {
+    public void addPromoCodeToOffer(String promoCode) {
         validPromoCodeList.add(promoCode);
     }
 }

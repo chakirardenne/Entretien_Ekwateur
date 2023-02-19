@@ -10,12 +10,12 @@ import java.util.Set;
 
 public class DefaultCodeValidator implements CodeValidator {
     @Override
-    public boolean validate(Set<Code> offerValidCodes, Code code) {
+    public boolean validate(Set<String> offerValidCodes, Code code) {
         return checkCodeEndDate(code) && containsCode(offerValidCodes, code);
     }
 
-    private boolean containsCode(Set<Code> offerValidCodes, Code code) {
-        return offerValidCodes.contains(code);
+    private boolean containsCode(Set<String> offerValidCodes, Code code) {
+        return offerValidCodes.contains(code.code());
     }
 
     private boolean checkCodeEndDate(Code code) {

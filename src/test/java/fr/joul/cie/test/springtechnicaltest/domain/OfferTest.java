@@ -11,7 +11,7 @@ class OfferTest {
     static Offer offer;
     @BeforeAll
     static void setUp() {
-        offer = new Offer("GAS", "EKWATEST", "UNE OFFRE TEST");
+        offer = new Offer(OfferType.GAS, "EKWATEST", "UNE OFFRE TEST");
     }
 
     @AfterAll
@@ -22,7 +22,7 @@ class OfferTest {
     @Test
     void addPromoCodeToOffer() {
         Code codeToAdd = new Code("EKWA_TEST", 1.75,"2019-10-04");
-        offer.addPromoCodeToOffer(codeToAdd);
-        assertTrue(offer.getValidPromoCodeList().contains(codeToAdd));
+        offer.addPromoCodeToOffer(codeToAdd.code());
+        assertTrue(offer.getValidPromoCodeList().contains(codeToAdd.code()));
     }
 }
