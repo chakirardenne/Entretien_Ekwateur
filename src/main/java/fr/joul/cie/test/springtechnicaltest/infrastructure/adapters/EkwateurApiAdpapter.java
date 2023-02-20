@@ -34,7 +34,7 @@ public class EkwateurApiAdpapter implements EkwateurApiPort {
     public List<Offer> getAllOffers() {
         List<Offer> offers = Collections.emptyList();
         try {
-            offers = new ObjectMapper().readValue(HttpManager.makeHttpCall(ApiURL.CODE_URL).body(), new TypeReference<List<Offer>>() {});
+            offers = new ObjectMapper().readValue(HttpManager.makeHttpCall(ApiURL.OFFERS_URL).body(), new TypeReference<List<Offer>>() {});
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

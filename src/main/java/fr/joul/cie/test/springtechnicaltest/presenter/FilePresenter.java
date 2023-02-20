@@ -26,7 +26,8 @@ public class FilePresenter {
         try {
             service.setOfferValidationStrategy("DEFAULT");
             response = service.getOffers(request);
-            new ObjectMapper().writeValue(new File("test.json"), response);
+            new ObjectMapper().writeValue(new File("compatible_offers.json"), response);
+            System.out.println("File created at root");
         }
         catch (CodeNotFound | NoCompatibleOfferException | IOException exception) {
             System.out.println(exception.getMessage());
