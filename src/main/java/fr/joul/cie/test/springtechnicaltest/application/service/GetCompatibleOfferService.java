@@ -7,8 +7,11 @@ import fr.joul.cie.test.springtechnicaltest.application.exception.NoCompatibleOf
 import fr.joul.cie.test.springtechnicaltest.application.exception.CodeNotFound;
 import fr.joul.cie.test.springtechnicaltest.domain.entities.Code;
 import fr.joul.cie.test.springtechnicaltest.domain.entities.Offer;
+import fr.joul.cie.test.springtechnicaltest.domain.exception.InvalidValidatorException;
 import fr.joul.cie.test.springtechnicaltest.domain.ports.in.GetCompatibleOfferUseCase;
 import fr.joul.cie.test.springtechnicaltest.domain.ports.out.EkwateurApiPort;
+import fr.joul.cie.test.springtechnicaltest.domain.validators.factories.ValidatorFactory;
+import fr.joul.cie.test.springtechnicaltest.domain.validators.factories.ValidatorFactoryImpl;
 import fr.joul.cie.test.springtechnicaltest.domain.validators.impl.DefaultCodeValidator;
 import fr.joul.cie.test.springtechnicaltest.domain.validators.impl.ValidatorType;
 import fr.joul.cie.test.springtechnicaltest.domain.validators.intf.CodeValidator;
@@ -50,10 +53,11 @@ public class GetCompatibleOfferService implements GetCompatibleOfferUseCase {
 
     @Override
     public void setOfferValidationStrategy(String validator) {
-        ValidatorType validatorType = ValidatorType.valueOf(validator);
-        codeValidator = switch (validatorType) {
-            case DEFAULT -> new DefaultCodeValidator();
-            default -> throw new RuntimeException("Not known validator strategy");
-        };
+        ValidatorFactory factory = new ValidatorFactoryImpl();
+        try {
+            codeValidator = factory.createValidator(ValidatorType.valueOf(validator));
+        } catch (InvalidValidatorException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
