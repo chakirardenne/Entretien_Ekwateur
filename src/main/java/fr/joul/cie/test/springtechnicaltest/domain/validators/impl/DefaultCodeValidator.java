@@ -1,6 +1,6 @@
 package fr.joul.cie.test.springtechnicaltest.domain.validators.impl;
 
-import fr.joul.cie.test.springtechnicaltest.domain.Code;
+import fr.joul.cie.test.springtechnicaltest.domain.entities.Code;
 import fr.joul.cie.test.springtechnicaltest.domain.validators.intf.CodeValidator;
 
 import java.time.LocalDate;

@@ -1,6 +1,9 @@
 package fr.joul.cie.test.springtechnicaltest.domain;
 
 
+import fr.joul.cie.test.springtechnicaltest.domain.entities.Code;
+import fr.joul.cie.test.springtechnicaltest.domain.entities.Offer;
+import fr.joul.cie.test.springtechnicaltest.domain.entities.OfferType;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

@@ -1,8 +1,8 @@
 package fr.joul.cie.test.springtechnicaltest.domain.validators.impl;
 
-import fr.joul.cie.test.springtechnicaltest.domain.Code;
-import fr.joul.cie.test.springtechnicaltest.domain.Offer;
-import fr.joul.cie.test.springtechnicaltest.domain.OfferType;
+import fr.joul.cie.test.springtechnicaltest.domain.entities.Code;
+import fr.joul.cie.test.springtechnicaltest.domain.entities.Offer;
+import fr.joul.cie.test.springtechnicaltest.domain.entities.OfferType;
 import fr.joul.cie.test.springtechnicaltest.domain.validators.intf.CodeValidator;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
