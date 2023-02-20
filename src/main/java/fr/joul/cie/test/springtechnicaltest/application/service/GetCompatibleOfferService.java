@@ -4,7 +4,7 @@ import fr.joul.cie.test.springtechnicaltest.application.converter.MapperTool;
 import fr.joul.cie.test.springtechnicaltest.application.dto.GetCompatibleOfferRequest;
 import fr.joul.cie.test.springtechnicaltest.application.dto.GetCompatibleOfferResponse;
 import fr.joul.cie.test.springtechnicaltest.application.exception.NoCompatibleOfferException;
-import fr.joul.cie.test.springtechnicaltest.application.exception.CodeNotFound;
+import fr.joul.cie.test.springtechnicaltest.application.exception.CodeNotFoundException;
 import fr.joul.cie.test.springtechnicaltest.domain.entities.Code;
 import fr.joul.cie.test.springtechnicaltest.domain.entities.Offer;
 import fr.joul.cie.test.springtechnicaltest.domain.exception.InvalidValidatorException;
@@ -44,7 +44,7 @@ public class GetCompatibleOfferService implements GetCompatibleOfferUseCase {
     private Code getPromoCode(String requestCode) {
         return apiPort.getAllCodes().stream().filter(c -> c.code().equals(requestCode))
                 .findFirst()
-                .orElseThrow(() -> new CodeNotFound("Code not found"));
+                .orElseThrow(() -> new CodeNotFoundException("Code not found"));
     }
 
     private List<Offer> getCompatibleOffers(List<Offer> allOffers, Code promoCode) {
