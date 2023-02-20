@@ -44,7 +44,7 @@ public class GetCompatibleOfferService implements GetCompatibleOfferUseCase {
     private Code getPromoCode(String requestCode) {
         return apiPort.getAllCodes().stream().filter(c -> c.code().equals(requestCode))
                 .findFirst()
-                .orElseThrow(() -> new CodeNotFound("Not found code"));
+                .orElseThrow(() -> new CodeNotFound("Code not found"));
     }
 
     private List<Offer> getCompatibleOffers(List<Offer> allOffers, Code promoCode) {
