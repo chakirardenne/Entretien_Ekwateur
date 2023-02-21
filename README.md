@@ -3,7 +3,7 @@ Test technique pour la société ekwateur
 
 Réalisation de l'exercice se trouvant ici : https://gitlab.com/ekwa-technical-tests/test-spring
 ## Architecture de l'application
-Utilisation de l'architectur hexagonal pour résoudre le problème
+Utilisation de l'architecture hexagonal pour résoudre le problème
 
 ### Domain
 Le package domain contient les entités métier de l'application :
