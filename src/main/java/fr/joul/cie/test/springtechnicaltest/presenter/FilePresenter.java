@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import fr.joul.cie.test.springtechnicaltest.application.dto.GetCompatibleOfferRequest;
 import fr.joul.cie.test.springtechnicaltest.application.dto.GetCompatibleOfferResponse;
 import fr.joul.cie.test.springtechnicaltest.application.exception.NoCompatibleOfferException;
-import fr.joul.cie.test.springtechnicaltest.application.exception.CodeNotFound;
+import fr.joul.cie.test.springtechnicaltest.application.exception.CodeNotFoundException;
 import fr.joul.cie.test.springtechnicaltest.application.service.GetCompatibleOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -29,7 +29,7 @@ public class FilePresenter {
             new ObjectMapper().writeValue(new File("compatible_offers.json"), response);
             System.out.println("File created at root");
         }
-        catch (CodeNotFound | NoCompatibleOfferException | IOException exception) {
+        catch (CodeNotFoundException | NoCompatibleOfferException | IOException exception) {
             System.out.println(exception.getMessage());
         }
     }

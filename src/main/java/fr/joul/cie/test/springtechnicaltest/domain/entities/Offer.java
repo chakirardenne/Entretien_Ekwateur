@@ -2,7 +2,6 @@ package fr.joul.cie.test.springtechnicaltest.domain.entities;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import java.util.HashSet;
 import java.util.Set;

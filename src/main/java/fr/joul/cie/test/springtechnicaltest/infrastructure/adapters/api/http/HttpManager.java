@@ -1,4 +1,4 @@
-package fr.joul.cie.test.springtechnicaltest.infrastructure.http;
+package fr.joul.cie.test.springtechnicaltest.infrastructure.adapters.api.http;
 
 import java.io.IOException;
 import java.net.URI;
@@ -9,19 +9,19 @@ import java.net.http.HttpResponse;
 public class HttpManager {
     private HttpManager() {}
 
-    public static HttpResponse<String> sendRequest(HttpClient client, HttpRequest request) throws IOException, InterruptedException {
+    private static HttpResponse<String> sendRequest(HttpClient client, HttpRequest request) throws IOException, InterruptedException {
         return client.send(request, HttpResponse.BodyHandlers.ofString());
     }
 
-    public static URI createUri(String apiUri) {
+    private static URI createUri(String apiUri) {
         return URI.create(apiUri);
     }
 
-    public static HttpClient createHttpClient() {
+    private static HttpClient createHttpClient() {
         return HttpClient.newHttpClient();
     }
 
-    public static HttpRequest createHttpRequest(URI uri) {
+    private static HttpRequest createHttpRequest(URI uri) {
         return HttpRequest
                 .newBuilder()
                 .uri(uri)
