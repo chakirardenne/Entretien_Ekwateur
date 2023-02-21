@@ -10,15 +10,14 @@ Le package domain contient les entités métier de l'application :
 - Offer : objet représentant une offre
 - Code : objet représentant une code promo
 - OfferType : type de l'offre
-- Validator : Patron strategy qui contient la logique de recherche d'offre compatabile à une offre
+- Validator : Patron strategy qui contient la logique de recherche d'offre compatible à une offre
 - ValidatorFactory : Patron factory à qui on délègue la création de strategy
 
 ### Infrastructure
-Contient les adapters out de récupération des données via l'api ekwateur
-et une classe utilitaire qui gère les appels http
+Contient les adapters out de récupération des données via l'api ekwateur et une classe utilitaire qui gère les appels http
 
 ### Application
-Contient les ports in et out du domain, les use case du domain et le port de persistence
+Contient les use case du domain
 
 Commande pour lancer l'application:
 - mvn spring-boot:run -Dspring-boot.run.arguments=MON_CODE_PROMO_A_TESTER
