@@ -7,6 +7,7 @@ import fr.joul.cie.test.springtechnicaltest.application.dto.GetCompatibleOfferRe
 import fr.joul.cie.test.springtechnicaltest.application.exception.NoCompatibleOfferException;
 import fr.joul.cie.test.springtechnicaltest.application.exception.CodeNotFoundException;
 import fr.joul.cie.test.springtechnicaltest.application.service.GetCompatibleOfferService;
+import fr.joul.cie.test.springtechnicaltest.domain.ports.in.GetCompatibleOfferUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ import java.io.IOException;
 @RequiredArgsConstructor
 @Component
 public class FilePresenter {
-    private final GetCompatibleOfferService service;
+    private final GetCompatibleOfferUseCase service;
 
     public void testPromoCode(String code) {
         GetCompatibleOfferRequest request = new GetCompatibleOfferRequest();
